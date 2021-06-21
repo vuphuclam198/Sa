@@ -1,0 +1,33 @@
+<?php
+/** @var \AHT\Sa\Block\Template $block */
+
+    $products = $block->getProducts();
+?>
+
+<div class="product_commission">
+    <h1>Product Assignes</h1>
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Product Name</th>
+            <th>SKU</th>
+            <th>URL</th>
+            <th>Commission Type</th>
+            <th>Commission Value</th>
+        </tr>
+    <?php foreach ($products as $key => $value) :?>
+        <tr>
+            <td><?= $key ?></td>
+            <td><?= $value->getName() ?></td>
+            <td><?= $value->getSku() ?></td>
+            <td><a href="<?= $value->getProductUrl() ?>">View</a></td>
+            <td><?= $value->getCommissionType() == 1 ? "Fixed" : "Percent" ?></td>
+            <td>
+                <?= $value->getCommissionValue() ?>
+                <?= $value->getCommissionType() == 1 ? " $" : " %" ?>
+            </td>
+            <td><?= $value->getPrice() ?></td>
+        </tr>
+    <?php endforeach ?>
+    </table>
+</div>

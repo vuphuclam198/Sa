@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="commission" resource="default" engine="innodb" comment="Table commission">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="order_id" padding="10" unsigned="true" nullable="false" default="0" comment="Order ID"/>
+        <column xsi:type="int" name="order_item_id" padding="10" unsigned="true" nullable="false" default="0" comment="Order Item ID"/>
+        <column xsi:type="varchar" name="order_item_sku" length="255" nullable="true" comment="Order Item SKU"/>
+        <column xsi:type="decimal" name="order_item_price" scale="4" precision="12" default="0" nullable="false" comment="Order Item Price"/>
+        <column xsi:type="int" name="commission_type" padding="11" nullable="true" default="0" comment="Commission Type"/>
+        <column xsi:type="varchar" name="commission_value" length="255" nullable="true" default="0" comment="Commission Value"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="REFERENCE_ID">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>
