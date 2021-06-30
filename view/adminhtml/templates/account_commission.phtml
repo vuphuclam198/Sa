@@ -1,0 +1,23 @@
+<table>
+    <thead>
+        <th>STT</th>
+        <th>SKU</th>
+        <th>Total Pride</th>
+        <th>Type</th>
+        <th>Value</th>
+        <th>Commission</th>
+    </thead>
+
+    <tbody>
+        <?php foreach ($block->getCommission() as $key => $value): ?> 
+            <tr>
+                <td><?= $key ?></td>
+                <td><?= $value->getOrderItemSku() ?></td>
+                <td><?= $value->getOrderItemPrice() ?></td>
+                <td><?= $value->getCommissionType() == 1 ? "fixed" : "Percent" ?></td>
+                <td><?= $value->getCommissionValue() ?></td>
+                <td><?= $value->getCommissionType() == 1 ? ($value->getCommissionValue())." $" : ($value->getOrderItemPrice() /  $value->getCommissionValue())." $" ?></td>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>

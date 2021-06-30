@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="AHT_Sa::commission" title="Commission" module="AHT_Sa" sortOrder="100" action="sale_sa/commission/account" parent="Magento_Reports::report_products" resource="AHT_Sa::commission"/>
+        <add id="AHT_Sa::commission2" title="Commission listing" module="AHT_Sa" sortOrder="110" action="sale_sa/commission/listing" parent="Magento_Reports::report_products" resource="AHT_Sa::commission"/>
+    </menu>
+</config>
