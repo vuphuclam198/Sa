@@ -40,4 +40,9 @@ class Index extends \Magento\Framework\View\Element\Template
         $products = $this->_productCollectionFactory->create()->addAttributeToFilter('sale_agent_id', $user)->addAttributeToSelect('*');
         return $products;
     }
+
+    public function roundPrice($price)
+    {    
+        return round($price);
+    }
 }

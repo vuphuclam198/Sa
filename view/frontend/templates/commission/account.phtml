@@ -27,7 +27,7 @@
                 <?= $value->getCommissionValue() ?>
                 <?= $value->getCommissionType() == 1 ? " $" : " %" ?>
             </td>
-            <td><?= $value->getPrice() ?></td>
+            <td><?= $block->roundPrice($value->getPrice()) . ' $' ?></td>
         </tr>
     <?php endforeach ?>
     </table>

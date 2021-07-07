@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <referenceContainer name="content">
-            <!-- <block class="AHT\Sa\Block\Name" name="AHT_Sa_Name" template="AHT_Sa::index.phtml" /> -->
-            <uiComponent name="sa_commission_listing" />
-        </referenceContainer>
-    </body>
-</page>

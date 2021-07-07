@@ -18,7 +18,7 @@ class Listing extends \Magento\Backend\App\Action
     public function execute()
     {
         $resultPage = $this->_pageFactory->create();
-        $resultPage->getConfig()->getTitle()->prepend(__('AHT sa Listing'));
+        $resultPage->getConfig()->getTitle()->prepend(__('AHT sa grid Listing'));
         return $resultPage;
     }
 }

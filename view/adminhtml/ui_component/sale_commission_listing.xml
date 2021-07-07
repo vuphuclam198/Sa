@@ -3,200 +3,91 @@
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">sale_commission_listing.sale_commission_listing_data_source</item>
-            <item name="deps" xsi:type="string">sale_commission_listing.sale_commission_listing_data_source</item>
         </item>
-        <item name="spinner" xsi:type="string">helloworld_post_columns</item>
-        <!-- <item name="buttons" xsi:type="array">
-            <item name="add" xsi:type="array">
-                <item name="name" xsi:type="string">add</item>
-                <item name="label" xsi:type="string" translate="true">Add A New Row</item>
-                <item name="class" xsi:type="string">primary</item>
-                <item name="url" xsi:type="string">*/*/add</item>
-            </item>
-        </item> -->
     </argument>
+    <settings>
+        <spinner>sale_commission_listing_columns</spinner>
+        <deps>
+            <dep>sale_commission_listing.sale_commission_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="sale_commission_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">item_id</param>
+            </storageConfig>
+        </settings>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="sale_commission_listing_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
     <listingToolbar name="listing_top">
-        <argument name="data" xsi:type="array">
-            <item name="config" xsi:type="array">
-                <item name="sticky" xsi:type="boolean">true</item>
-            </item>
-        </argument>
+        <settings>
+            <sticky>true</sticky>
+        </settings>
         <bookmark name="bookmarks"/>
-        <filters name="listing_filters" />
         <columnsControls name="columns_controls"/>
-        <filterSearch name="fulltext">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="provider" xsi:type="string">sale_commission_listing.sale_commission_listing_data_source</item>
-                    <item name="chipsProvider" xsi:type="string">sale_commission_listing.sale_commission_listing.listing_top.listing_filters_chips</item>
-                    <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">sale_commission_listing.sale_commission_listing.listing_top.bookmarks</item>
-                        <item name="namespace" xsi:type="string">current.search</item>
-                    </item>
-                </item>
-            </argument>
-        </filterSearch>
-
-        <paging name="listing_paging"/>
         <exportButton name="export_button"/>
-        <massaction name="listing_massaction">
+        <filters name="listing_filters">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
-                </item>
-            </argument>
-            <action name="delete">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="type" xsi:type="string">delete</item>
-                        <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="*/*/delete"/>
-                        <item name="confirm" xsi:type="array">
-                            <item name="title" xsi:type="string" translate="true">Delete Row</item>
-                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
+                    <item name="templates" xsi:type="array">
+                        <item name="filters" xsi:type="array">
+                            <item name="select" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                                <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            </item>
                         </item>
                     </item>
-                </argument>
-            </action>
-        </massaction>
+                </item>
+            </argument>
+        </filters>
+        <paging name="listing_paging"/>
+        <massaction name="listing_massaction" />
     </listingToolbar>
+    <columns name="sale_commission_listing_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>item_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="order_item_sku">
+            <settings>
+                <label translate="true">SKU</label>
+                <filter>text</filter>
+            </settings>
+        </column>
 
-    <dataSource name="sale_commission_listing_data_source">
-        <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
-            <argument name="name" xsi:type="string">sale_commission_listing_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">id</argument>
-            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
-                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
-                    <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">id</item>
-                    </item>
-                </item>
-            </argument>
-        </argument>
-    </dataSource>
+        <column name="name">
+            <settings>
+                <label translate="true">Product Name</label>
+                <filter>text</filter>
+            </settings>
+        </column>
 
-    <!-- columns -->
-    <columns name="sale_commission_columns">
-        <!-- <argument name="data" xsi:type="array">
-            <item name="config" xsi:type="array">
-                <item name="storageConfig" xsi:type="array">
-                    <item name="provider" xsi:type="string">sale_commission_listing.sale_commission_listing.listing_top.bookmarks</item>
-                    <item name="namespace" xsi:type="string">current</item>
-                </item>
-                <item name="childDefaults" xsi:type="array">
-                    <item name="controlVisibility" xsi:type="boolean">true</item>
-                    <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">sale_commission_listing.sale_commission_listing.listing_top.bookmarks</item>
-                        <item name="root" xsi:type="string">columns.${ $.index }</item>
-                        <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
-                    </item>
-                </item>
-            </item>
-        </argument> -->
+        <column name="qty_ordered">
+            <settings>
+                <label translate="true">QTY</label>
+                <filter>text</filter>
+            </settings>
+        </column>
 
-        <!-- <selectionsColumn name="ids">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="indexField" xsi:type="string">entity_id</item>
-                </item>
-            </argument>
-        </selectionsColumn> -->
-
-        <!-- Column id -->
-        <!-- <column name="post_id">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">textRange</item>
-                    <item name="sorting" xsi:type="string">asc</item>
-                    <item name="label" xsi:type="string" translate="true">ID</item>
-                </item>
-            </argument>
+        <!-- <column name="value">
+            <settings>
+                <label translate="true">Value</label>
+                <filter>text</filter>
+            </settings>
         </column> -->
-        <column name="order_id" sortOrder="20">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">commission</item>
-                    <item name="dataScope" xsi:type="string">title</item>
-                    <item name="label" xsi:type="string" translate="true">Order ID</item>
-                    <item name="filter" xsi:type="string">text</item>
-                </item>
-            </argument>
-        </column>
-        <!-- Column SKU -->
-        <column name="order_item_sku" sortOrder="30">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">commission</item>
-                    <item name="dataScope" xsi:type="string">title</item>
-                    <item name="label" xsi:type="string" translate="true">SKU</item>
-                    <item name="filter" xsi:type="string">text</item>
-                </item>
-            </argument>
-        </column>
-        <!-- Column price product -->
-        <column name="order_item_price" sortOrder="40">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">commission</item>
-                    <item name="dataScope" xsi:type="string">title</item>
-                    <item name="label" xsi:type="string" translate="true">Price product</item>
-                </item>
-            </argument>
-        </column>
 
-        <!-- Column name product -->
-        <column name="order_item_price" sortOrder="40">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">commission</item>
-                    <item name="dataScope" xsi:type="string">title</item>
-                    <item name="label" xsi:type="string" translate="true">Price product</item>
-                </item>
-            </argument>
-        </column>
-        <!-- Column title -->
-        <column name="commission_value">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">commission</item>
-                    <item name="dataScope" xsi:type="string">title</item>
-                    <item name="label" xsi:type="string" translate="true">Commission value</item>
-                    <item name="filter" xsi:type="string">text</item>
-                </item>
-            </argument>
-        </column>
-
-         <column name="commission_type">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">commission</item>
-                    <item name="dataScope" xsi:type="string">status</item>
-                    <item name="label" xsi:type="string" translate="true">Commission Type</item>
-                    <item name="filter" xsi:type="string">text</item>
-                </item>
-            </argument>
+        <column name="fullname_agent">
+            <settings>
+                <label translate="true">Full Name</label>
+                <filter>text</filter>
+            </settings>
         </column>
     </columns>
 </listing>

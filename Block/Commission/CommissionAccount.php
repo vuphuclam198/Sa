@@ -18,7 +18,7 @@ class CommissionAccount extends \Magento\Framework\View\Element\Template
         array $data = []
     ) {
         $this->_commissionCollectionFactory = $commissionCollectionFactory;
-        parent::__construct($context, $data);
+        parent::__construct($context, $data);   
     }
 
     public function getCommission() {

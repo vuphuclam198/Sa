@@ -3,7 +3,7 @@ namespace AHT\Sa\Controller\Adminhtml\Commission;
 
 class Index extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'AHT_Sa::commission';
+    const ADMIN_RESOURCE = 'AHT_Sa::index';
 
     const PAGE_TITLE = 'Page Title';
 
