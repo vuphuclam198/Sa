@@ -54,7 +54,10 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
             )->joinLeft(
                 ['customer' => $this->getTable('customer_entity')],
                 "product.value = customer.entity_id",
-                ['fullname_agent' =>'CONCAT(customer.lastname, " ", customer.firstname)'] 
+                [
+                    'fullname_agent' =>'CONCAT(customer.lastname, " ", customer.firstname)',
+                    'email_agent' =>'customer.email'
+                ] 
             );
 
         return $this;

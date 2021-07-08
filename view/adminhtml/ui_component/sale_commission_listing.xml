@@ -76,16 +76,23 @@
             </settings>
         </column>
 
-        <!-- <column name="value">
+        <column name="email_agent">
             <settings>
-                <label translate="true">Value</label>
+                <label translate="true">Email</label>
                 <filter>text</filter>
             </settings>
-        </column> -->
+        </column>
 
         <column name="fullname_agent">
             <settings>
                 <label translate="true">Full Name</label>
+                <filter>text</filter>
+            </settings>
+        </column>
+
+        <column name="order_item_price">
+            <settings>
+                <label translate="true">product subtotal</label>
                 <filter>text</filter>
             </settings>
         </column>

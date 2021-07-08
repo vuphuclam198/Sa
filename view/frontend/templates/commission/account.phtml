@@ -1,7 +1,8 @@
 <?php
 /** @var \AHT\Sa\Block\Template $block */
-
+    $cssClass = $this->hasCssClass() ? '' . $this->getCssClass() : '';
     $products = $block->getProducts();
+    $item1 = $block->getData('item1');
 ?>
 
 <div class="product_commission">

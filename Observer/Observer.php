@@ -52,7 +52,7 @@ class Observer implements \Magento\Framework\Event\ObserverInterface
 
             foreach ($product as $value) {
 
-                if(!($value->getCommissionType() == '')) {
+                if(!empty($value->getCommissionType())) {
                     $commission->setOrderId($oderProduct->getId());
                     $commission->setOrderItemId($value->getId());
                     $commission->setOrderItemSku($value->getSku());
