@@ -63,6 +63,13 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         return $this;
     }
 
+    protected $_map = [
+        'fields' => [
+            'fullname_agent' =>'CONCAT(customer.lastname, " ", customer.firstname)',
+            'email_agent' =>'customer.email'
+        ]  
+    ];
+
     private function getProductNameAttributeId()
     {
         return $this->getProductAttribute('sale_agent_id');

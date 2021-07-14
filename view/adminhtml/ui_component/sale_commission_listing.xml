@@ -78,7 +78,7 @@
 
         <column name="email_agent">
             <settings>
-                <label translate="true">Email</label>
+                <label translate="true">email_agent</label>
                 <filter>text</filter>
             </settings>
         </column>
@@ -86,7 +86,6 @@
         <column name="fullname_agent">
             <settings>
                 <label translate="true">Full Name</label>
-                <filter>text</filter>
             </settings>
         </column>
 

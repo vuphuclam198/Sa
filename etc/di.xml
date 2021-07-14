@@ -8,4 +8,8 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="Magento\Customer\Model\Data\Customer">
+        <plugin name="change-wellcome" type="AHT\Sa\Plugin\CustomerData\Customer" sortOrder="10" disabled="false"/>
+    </type>
 </config>
